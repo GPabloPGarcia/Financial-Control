@@ -21,7 +21,7 @@ body {
 
 .container {
   margin: 30px auto;
-  width: 350px;
+  width: 80%;
 }
 
 h1 {
@@ -55,8 +55,12 @@ h4 {
   text-align: center;
 }
 
-.inc-exp-container > div:first-of-type {
+.inc-exp-container > div {
   border-right: 1px solid #dedede;
+}
+
+.inc-exp-container > div:last-of-type {
+  border-right: none;
 }
 
 .money {
@@ -65,11 +69,11 @@ h4 {
   margin: 5px 0;
 }
 
-.money.plus {
+.money-plus {
   color: #2ecc71;
 }
 
-.money.minus {
+.money-minus {
   color: #c0392b;
 }
 

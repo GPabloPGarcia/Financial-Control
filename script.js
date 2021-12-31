@@ -5,6 +5,11 @@ const balanceDisplay = document.querySelector('#balance');
 const form = document.querySelector('#form');
 const inputTransactionName = document.querySelector('#text');
 const inputTransactionAmount = document.querySelector('#amount');
+const essential = document.querySelector('#essential');
+const knowledge = document.querySelector('#knowledge');
+const goal = document.querySelector('#goal');
+const free = document.querySelector('#free');
+
 
 const localStorageTransaction = JSON
     .parse(localStorage.getItem('transactions'));
@@ -35,6 +40,13 @@ const addTransactionIntoDOM = transaction => {
     transactionUl.append(li);
 }
 
+const segregateTotal = total => {
+    essential.textContent = `R$ ${((55/100) * total).toFixed(2)}`;
+    knowledge.textContent = `R$ ${((5/100) * total).toFixed(2)}`;
+    goal.textContent = `R$ ${((30/100) * total).toFixed(2)}`;
+    free.textContent = `R$ ${((10/100) * total).toFixed(2)}`;
+}
+
 const updateBalanceValues = () => {
     const transactionsAmounts = transactions
         .map(transaction => transaction.amount);
@@ -52,6 +64,7 @@ const updateBalanceValues = () => {
     balanceDisplay.textContent = `R$ ${total}`;
     incomeDisplay.textContent = `R$ ${income}`;
     expenseDisplay.textContent = `R$ ${expense}`;
+    segregateTotal(income);
 }
 
 const init = () => {
